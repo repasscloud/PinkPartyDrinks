@@ -14,13 +14,13 @@ jobs:
     - uses: actions/checkout@v3
     
     # sets up .NET Core SDK 7.0
-    - name: Setup .NET Core SDK
+    - name: Setup .NET 7.0 SDK
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0
 
     # publishes Blazor project to the release-folder
-    - name: Publish .NET Core Project
+    - name: Publish .NET 7.0 WASM Project
       run: dotnet publish PinkPartyDrinks/PinkPartyDrinks.csproj -c Release -o release --nologo
     
     # changes the base-tag in index.html from '/' to 'PinkPartyDrinks' to match GitHub Pages repository subdirectory
