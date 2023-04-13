@@ -1,0 +1,26 @@
+﻿@page "/about"
+
+<PageTitle>@PageTitle</PageTitle>
+
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8" style="text-align: center;">
+            <h1 class="text-center">@PageTitle</h1>
+            <p>@Text</p>
+            <p>@Text2</p>
+            <img class="img-fluid max-width-100" src="@Image" alt="@AltText">
+        </div>
+    </div>
+</div>
+
+@code {
+    private string PageTitle = "Special ❤️ Thanks";
+
+    private string Text = "Shoutout to Aleks, for who all of this party wouldn't be possibe.";
+    
+    private string Text2 = "Send money plz 💰💰💰";
+
+    private string Image = "img/page-specific/aleks.jpg";
+
+    private string AltText = "Aleks";
+}

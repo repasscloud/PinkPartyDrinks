@@ -1,0 +1,52 @@
+﻿@page "/houserules"
+
+<PageTitle>@PageTitle</PageTitle>
+
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center">@PageTitle</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+           <p>For everyone to have an enjoyable night, we have a few simple rules we'd like you to follow. This ensures everyone can enjoy the time and our home is respected. Anything else? Just ask!</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <table class="table">
+                <tbody>
+                    @foreach (var rule in Rules)
+                    {
+                        <tr>
+                            <td class="text-center">@rule</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string PageTitle = "House Rules";
+
+    private string[] Rules = new string[]
+    {
+        "🍹 Bar person to make all cocktails 🍹",
+        "😎 Don't be high maintenance, that's my job 😎",
+        "🥂 Beer, wine, water is in the fridge 🥂",
+        "⚠️ Do not go into the middle office room ⚠️",
+        "🚽 Leave toilet door open, so we know it's free 🚽",
+        "🎉 Eat, live, laugh, drink, dance and enjoy 🎉",
+        "🚑 If you break a glass, leave it - we'll fix it 🚑",
+        "⏰ Everyone get out at 11pm, I'm going to Arq ⏰",
+    };
+}

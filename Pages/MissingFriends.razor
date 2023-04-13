@@ -1,0 +1,26 @@
+﻿@page "/missing"
+
+<PageTitle>@PageTitle</PageTitle>
+
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8" style="text-align: center;">
+            <h1 class="text-center">@PageTitle</h1>
+            <p>@Text</p>
+            <p>@Text2</p>
+            <img class="img-fluid max-width-100" src="@Image" alt="@AltText">
+        </div>
+    </div>
+</div>
+
+@code {
+    private string PageTitle = "Missing Friends";
+
+    private string Text = "Unfortunately, our dear brothers Adrian and Damian were not able to be here today.";
+
+    private string Text2 = "Raise a 🍸 (or a 🌮) for them tonight!";
+
+    private string Image = "img/page-specific/missing.jpg";
+
+    private string AltText = "Adrian and Damian";
+}
