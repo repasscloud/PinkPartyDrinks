@@ -1,0 +1,77 @@
+﻿@page "/devilsmargarita"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Devil's Margarita";
+
+    private string ImageUrl = "img/devilsmargarita.png";
+
+    private string Description = "Enjoy the bold and fiery taste of the Devil's Margarita, with the classic flavors of tequila and lime, combined with the rich depth of red wine. The tangy lime juice and triple sec blend perfectly with the tequila, while the red wine adds a unique and unexpected twist to this devilishly delicious cocktail. Perfect for those who like their drinks with a little extra kick!";
+
+    private string[] ingredients = {
+        "2 oz Tequila",
+        "25 ml Lemon Juice",
+        "1/2 oz Cointreau",
+        "Red wine"
+    };
+
+    private string[] instructions = {
+        "Fill a shaker with ice.",
+        "Add 2 oz of tequila, 25 mL of lime juice, and 1/2 oz of triple sec to the shaker.",
+        "Shake well until chilled.",
+        "Strain the mixture into a glass filled with ice.",
+        "Top up with red wine to taste.",
+        "Garnish with a lime wedge and serve."
+    };
+}

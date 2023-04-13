@@ -1,0 +1,71 @@
+﻿@page "/basilsmash"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Basil Smash";
+
+    private string ImageUrl = "img/basilsmash.png";
+
+    private string Description = "Basil Smash has a refreshing and herbaceous flavor profile. The gin base provides a crisp and clean taste, while the fresh basil leaves add a slightly sweet and aromatic note. The lemon juice adds a bright acidity that balances the sweetness of the simple syrup, creating a well-rounded flavor. Overall, the Basil Smash is a refreshing and balanced cocktail that is perfect for a warm summer day.";
+
+    private string[] ingredients = { "2 oz Gin", "6 Fresh Basil Leaves", "1 oz Fresh Lemon Juice", "1 oz Simple Syrup" };
+
+    private string[] instructions = {
+        "Muddle 6 fresh basil leaves in a cocktail shaker to release their essential oils and flavor.",
+        "Fill the shaker with ice, gin, fresh lemon juice, and simple syrup.",
+        "Shake vigorously to combine all the ingredients.",
+        "Strain the drink into a glass filled with ice.",
+        "Garnish with a sprig of fresh basil and serve."
+    };
+}

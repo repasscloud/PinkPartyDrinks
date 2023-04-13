@@ -1,0 +1,79 @@
+﻿@page "/italianmargarita"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Italian Margarita";
+
+    private string ImageUrl = "img/matterhorn.jpeg";
+
+    private string Description = "Italian Margarita is a combination of smooth amaretto, bold tequila, and tangy lime juice complemented by the sweetness of orange juice creates a romantic and harmonious balance of flavors. The addition of ice adds a refreshing element, making this cocktail perfect for a romantic evening or a cozy night in.";
+
+    private string[] ingredients = new string[] {
+        "1 1/2 oz Amaretto",
+        "1 1/2 oz Tequila",
+        "1 oz Lime Juice",
+        "3 oz Orange Juice"
+    };
+
+    private string[] instructions = new string[] {
+        "Fill a shaker with ice",
+        "Add amaretto, tequila, lime juice, and orange juice to the shaker",
+        "Shake well until chilled",
+        "Strain into a glass filled with ice",
+        "Garnish with a slice of orange or a lime wheel, if desired"
+    };
+
+
+}
+

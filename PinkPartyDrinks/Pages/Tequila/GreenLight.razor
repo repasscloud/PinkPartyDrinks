@@ -1,0 +1,76 @@
+﻿@page "/greenlight"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Green Light";
+
+    private string ImageUrl = "img/greenlight.png";
+
+    private string Description = "Green Light is a cocktail that evokes feelings of summertime and romance. The bright and lively color of the Midori liqueur gives the drink a dreamy, almost ethereal quality. When combined with the sharpness of the tequila and the tartness of the lime juice, the result is a perfectly balanced and refreshing cocktail that feels like a cool breeze on a hot summer's day. The silky smoothness of the egg white provides a luxurious finish that leaves you wanting more. Sip on a Green Light and let yourself be transported to a dreamy, carefree world.";
+
+    private string[] ingredients = new string[] {
+        "2 oz Tequila",
+        "3/4 oz Midori",
+        "1 oz Lime Juice",
+        "1/4 oz Simple Syrup",
+        "Egg White"
+    };
+
+    private string[] instructions = new string[] {
+        "Add all ingredients to a shaker without ice",
+        "Shake vigorously for about 10-15 seconds to emulsify the egg white",
+        "Add ice to the shaker and shake again for another 10-15 seconds",
+        "Strain into a chilled glass and serve."
+    };
+}

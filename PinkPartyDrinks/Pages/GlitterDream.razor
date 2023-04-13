@@ -1,0 +1,80 @@
+﻿@page "/glitterdream"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Glitter Dream";
+
+    private string ImageUrl = "img/matterhorn.jpeg";
+
+    private string Description = "Sparkly is the word that comes to mind when you think of the dazzling cocktail called Glitter Dream. This drink is a whimsical and refreshing blend of white wine and tonic water, accompanied by the boldness of vodka. The sweetness of a touch of lime juice and simple syrup accentuates the taste. It can be Blue, Pink or Gold, served in a glass rimmed with edible glitter, which makes it the perfect choice for anyone looking for a fun and flirty cocktail that sparkles as bright as they do.";
+
+    private string[] ingredients = new string[] {
+        "2 oz Vodka or Tequila",
+        "2 oz White Wine",
+        "2 oz Tonic Water",
+        "1/2 oz Lime Juice",
+        "1/2 oz Simple Syrup"
+    };
+
+    private string[] instructions = new string[] {
+        "Fill a cocktail shaker with ice.",
+        "Add vodka, white wine, tonic water, lime juice, and simple syrup.",
+        "Shake well to combine.",
+        "Strain into a glass filled with ice, rimmed with coloured sugar.",
+        "Stir in pink, blue or gold glitter."
+    };
+
+
+}
+

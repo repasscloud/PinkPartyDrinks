@@ -1,0 +1,79 @@
+﻿@page "/thelady"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "The Lady";
+
+    private string ImageUrl = "img/thelady.png";
+
+    private string Description = "The Lady is a classic and elegant drink that features the bold flavors of gin and lemon juice, balanced out with the sweetness of simple syrup and the frothy texture of egg white. The cocktail is perfect for any occasion, from a sophisticated cocktail party to a casual evening at home. Its smooth and refreshing taste makes it a favorite among gin lovers, and the delicate froth on top adds a touch of elegance to the overall presentation.";
+
+    private string[] ingredients = new string[] {
+        "2 oz Gin",
+        "1 oz Lemon Juice",
+        "1 oz Simple Syrup",
+        "Egg White"
+    };
+
+    private string[] instructions = new string[] {
+        "In a cocktail shaker, combine the gin, lemon juice, simple syrup, and egg white.",
+        "Dry shake (without ice) vigorously for 15-20 seconds to emulsify the egg white and create a frothy texture.",
+        "Add ice to the shaker and shake again for 10-15 seconds to chill the cocktail.",
+        "Strain the cocktail into a chilled glass.",
+        "Optionally, garnish with a lemon twist or zest for an extra burst of flavor."
+    };
+
+
+}
+

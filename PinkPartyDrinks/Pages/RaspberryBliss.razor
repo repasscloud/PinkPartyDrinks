@@ -1,0 +1,75 @@
+﻿@page "/raspberrybliss"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Raspbery Bliss";
+
+    private string ImageUrl = "img/matterhorn.jpeg";
+
+    private string Description = "Looking to bring a burst of sunshine to your day? Look no further than this zesty and fruity concoction! With a generous pour of vodka and a tangy twist of lemon juice, this drink is the perfect pick-me-up. But what really sets it apart is the irresistible sweetness of the raspberry coulee, blended with just the right amount of simple syrup to create a tantalizing balance of flavors. So kick back, relax, and let this colorful and delicious drink transport you to a place of pure joy and happiness!";
+
+    private string[] ingredients = new string[] {
+        "2 oz Vodka",
+        "1 oz Lemon Juice",
+        "1 oz Raspberry Coulee",
+        "1/2 oz Simple Syrup"
+    };
+
+    private string[] instructions = new string[] {
+        "Combine all ingredients in cocktail shaker.",
+        "Fill the shaker with ice and shake vigorously for about 10-15 seconds, until the cocktail is well chilled.",
+        "Strain the mixture into a chilled glass filled with ice.",
+        "Garnish with fresh raspberries and lemon slices, and serve immediately."
+    };
+}

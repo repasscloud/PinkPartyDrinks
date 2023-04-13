@@ -1,0 +1,77 @@
+﻿@page "/japaneseslipper"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Japanese Slipper";
+
+    private string ImageUrl = "img/japaneseslipper.png";
+
+    private string Description = "Japanese Slipper is a sweet and tangy drink that is typically served straight up in a cocktail glass. The cocktail is made with Midori, a melon-flavored liqueur, and Cointreau, an orange-flavored triple sec. The addition of fresh lemon juice adds a tangy twist to the drink, which is then garnished with a maraschino cherry for an extra pop of flavor.";
+
+    string[] ingredients = {
+        "1 1/2 oz Midori",
+        "1/2 oz Cointreau",
+        "3/4 oz Fresh Lemon Juice",
+        "1 Maraschino Cherry, for garnish"
+    };
+
+    string[] instructions = {
+        "Fill a cocktail shaker with ice.",
+        "Add Midori, Cointreau, and lemon juice to the shaker.",
+        "Shake well until chilled.",
+        "Strain the mixture into a chilled cocktail glass.",
+        "Garnish with a maraschino cherry and serve."
+    };
+}
+

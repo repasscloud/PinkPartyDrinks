@@ -1,0 +1,77 @@
+﻿@page "/pinacolada"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Piña Colada";
+
+    private string ImageUrl = "img/pinacolada.png";
+
+    private string Description = "Sipping a Piña Colada is like taking a tropical vacation with your lover. The sweet aroma of pineapple juice and creamy coconut cream combine with the smooth taste of rum to create a luxurious drink that transports you to a beach paradise. As you sip the cocktail, you'll taste the perfect balance of fruity sweetness and a hint of alcohol, creating a perfect treat to share with your significant other.";
+
+    private string[] ingredients = new string[] {
+        "4 oz Pineapple Juice",
+        "1 oz Coconut Cream",
+        "1 oz Rum"
+    };
+
+    private string[] instructions = new string[] {
+        "Add the pineapple juice, coconut cream, and rum to a cocktail shaker filled with ice.",
+        "Shake well until the outside of the shaker becomes frosty.",
+        "Strain the mixture into a hurricane glass filled with crushed ice.",
+        "Garnish with a pineapple wedge and a cherry."
+    };
+
+
+}
+

@@ -1,0 +1,76 @@
+﻿@page "/gardendelight"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Garden Delight";
+
+    private string ImageUrl = "img/gardendelight.png";
+
+    private string Description = "Garden Delight is a combinationof the floral gin, sweet melon-flavored Midori, and refreshing cucumber is balanced perfectly by the bitter tonic water. The cucumber adds a subtle earthy note and a crisp finish to the drink. Overall, this cocktail is a refreshing and flavorful twist on the classic gin and tonic.";
+
+    private string[] ingredients = {
+        "2 oz Gin",
+        "2 oz Midori",
+        "3-4 Slices of Cucumber",
+        "Tonic Water"
+    };
+
+    private string[] instructions = {
+        "Muddle 3-4 slices of cucumber in the bottom of a shaker.",
+        "Add 2 oz gin and 2 oz Midori to the shaker.",
+        "Fill the shaker with ice and shake well.",
+        "Strain the mixture into a glass filled with ice.",
+        "Top with tonic water and garnish with a cucumber slice."
+    };
+}

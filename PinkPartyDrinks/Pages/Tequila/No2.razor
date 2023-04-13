@@ -1,0 +1,78 @@
+﻿@page "/no2"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "No. 2";
+
+    private string ImageUrl = "img/matterhorn.jpeg";
+
+    private string Description = "No.2 is a unique blend of flavors that combines the anise flavor of absinthe with the bold taste of tequila and the bitter sweetness of aperol. The drink is finished with a pinch of salt, which helps to bring out the other flavors. To add an extra touch of citrus, a 1/2 lime skin is muddled in the shaker, giving the drink a bright and refreshing taste. The cocktail is then served in a chilled glass and garnished with a lime wheel or twist. This drink is perfect for those looking for a new and exciting cocktail experience.";
+
+    private string[] ingredients = {
+        "1 oz Absinthe",
+        "1 oz Tequila",
+        "1 oz Aperol",
+        "Pinch of Salt",
+        "1/2 Lime Skin"
+    };
+
+    private string[] instructions = {
+        "In a shaker, muddle the lime skin with the pinch of salt.",
+        "Add ice to the shaker.",
+        "Add absinthe, tequila, and aperol to the shaker.",
+        "Shake well.",
+        "Strain the mixture into a chilled glass.",
+        "Garnish with a lime wheel or twist, and serve."
+    };
+}

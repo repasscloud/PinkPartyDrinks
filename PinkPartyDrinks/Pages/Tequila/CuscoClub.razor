@@ -1,0 +1,84 @@
+﻿@page "/cuscoclub"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Cusco Club";
+
+    private string ImageUrl = "img/cuscoclub.png";
+
+    private string Description = "Cusco Club is a fruity, slightly bitter twist on a classic margarita. The Aperol adds a bright orange color and a hint of bitterness, while the blueberries add a sweet, juicy flavor and a beautiful purple hue. The egg white creates a creamy texture and a frothy foam on top of the cocktail.";
+
+    private string[] ingredients = new string[]
+    {
+        "2 oz Tequila",
+        "1 oz Aperol",
+        "1 oz Lime Juice",
+        "1/2 oz Simple Syrup",
+        "1/4 cup Fresh Blueberries",
+        "Egg White"
+    };
+
+
+    private string[] instructions = new string[]
+    {
+        "In a cocktail shaker, muddle the blueberries until they are crushed.",
+        "Add the tequila, Aperol, lime juice, simple syrup, and egg white to the shaker.",
+        "Dry shake the mixture (without ice) vigorously for about 10-15 seconds.",
+        "Add ice to the shaker and shake again for another 10-15 seconds.",
+        "Strain the cocktail into a chilled glass.",
+        "Garnish with a lime wedge or a few fresh blueberries, if desired."
+    };
+
+}
+

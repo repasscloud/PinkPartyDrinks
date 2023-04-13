@@ -1,0 +1,82 @@
+﻿@page "/princesdock"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Prince's Dock";
+
+    private string ImageUrl = "img/princesdock.png";
+
+    private string Description = "Prince's Dock is a refreshing and fruity cocktail that features the bold flavor of gin, the tanginess of lemon juice, and the sweetness of strawberries and passionfruit syrup. The addition of egg white adds a creamy and frothy texture to the cocktail, while also balancing out the tartness of the lemon juice. The cocktail is perfect for sipping on a warm summer day or as a refreshing after-dinner drink. The combination of flavors and textures in this cocktail make it a delightful and unique drinking experience.";
+
+    private string[] ingredients = new string[]
+    {
+        "2 oz Gin",
+        "1 oz Lemon Juice",
+        "3 Strawberries, hulled and sliced",
+        "1/2 oz Passionfruit Syrup",
+        "Egg White"
+    };
+
+    private string[] instructions = new string[]
+    {
+        "In a cocktail shaker, muddle the sliced strawberries until they are crushed.",
+        "Add the gin, lemon juice, passionfruit syrup, and egg white to the shaker.",
+        "Dry shake the mixture (without ice) vigorously for about 10-15 seconds.",
+        "Add ice to the shaker and shake again for another 10-15 seconds.",
+        "Strain the cocktail into a chilled glass.",
+        "Garnish with a strawberry, if desired."
+    };
+
+}
+

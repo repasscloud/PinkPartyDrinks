@@ -1,0 +1,77 @@
+﻿@page "/bluelagoon"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Blue Lagoon";
+
+    private string ImageUrl = "img/bluelagoon.png";
+
+    private string Description = "The Blue Lagoon is a stunning and vibrant cocktail that will transport you to a tropical paradise with just one sip. The blend of smooth vodka and crisp gin creates a perfect base, while the addition of Blue Curacao liqueur gives it a striking blue hue that is reminiscent of clear waters. The effervescence of tonic water adds a refreshing and bubbly note, making it a perfect sipper.";
+
+    private string[] ingredients = new string[] {
+        "2 oz Vodka",
+        "2 oz Gin",
+        "1 oz Blue Curacao",
+        "Tonic Water"
+    };
+
+    private string[] instructions = new string[] {
+        "Add Vodka to a glass filled with ice.",
+        "Add Gin to the glass.",
+        "Add Blue Curacao to the glass.",
+        "Top off the glass with Tonic Water.",
+        "Stir gently to mix all ingredients.",
+        "Garnish with a lemon wedge or blueberries if desired."
+    };
+}

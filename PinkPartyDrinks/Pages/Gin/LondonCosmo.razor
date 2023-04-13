@@ -1,0 +1,76 @@
+﻿@page "/londoncosmo"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "London Cosmo";
+
+    private string ImageUrl = "img/londoncosmo.png";
+
+    private string Description = "The London Cosmo is the epitome of cosmopolitan class, a sophisticated twist on a timeless classic. This cocktail balances the sharpness of gin with the smooth sweetness of cointreau, delicately elevated by the tangy notes of fresh lemon juice. The luscious crimson hue of cranberry juice adds an elegant touch to this already refined libation, making it the perfect choice for any stylish occasion. Sip on this chic concoction and let its luxurious flavor transport you to the heart of London's vibrant cocktail scene.";
+
+    private string[] ingredients = new string[] {
+        "1 1/2 oz Gin",
+        "1/2 oz Cointreau",
+        "1/2 oz Lemon Juice",
+        "1 oz Cranberry Juice"
+    };
+
+    private string[] instructions = new string[] {
+        "Fill a cocktail shaker with ice.",
+        "Add gin, cointreau, lemon juice, and cranberry juice to the shaker.",
+        "Shake until well-chilled.",
+        "Strain into a chilled martini glass.",
+        "Garnish with a twist of lemon or a fresh cranberry, if desired."
+    };
+}

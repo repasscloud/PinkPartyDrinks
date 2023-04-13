@@ -1,0 +1,77 @@
+﻿@page "/cherrybomb"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Cherry Bomb";
+
+    private string ImageUrl = "img/matterhorn.jpeg";
+
+    private string Description = "Introducing the Cherry Bomb cocktail, a drink that's ready to explode with flavor! Made with 2 ounces of smooth vodka, zesty lime juice, and a tantalizing cherry coulee, this drink is a fruity explosion of fun. To balance out the sweetness, a touch of simple syrup is added to the mix, making it a drink that's both sweet and tangy. And don't forget the cherry on top, the perfect finishing touch to this explosive drink. So get ready to take your taste buds on a wild ride with the Cherry Bomb!";
+
+    private string[] ingredients = new string[] {
+        "2 oz Vodka",
+        "1 oz Lime Juice",
+        "1 oz Cherry Coulee",
+        "1/2 oz Simple Syrup",
+        "Maraschino Cherry, for garnish"
+    };
+
+    private string[] instructions = new string[] {
+        "Add vodka to shaker filled with ice.",
+        "Pour in lime juice, cherry coulee, and simple syrup.",
+        "Shake vigorously for 15-20 seconds.",
+        "Strain into a chilled glass.",
+        "Garnish with a cherry and serve."
+    };
+}

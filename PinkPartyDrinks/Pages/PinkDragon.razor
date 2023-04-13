@@ -1,0 +1,79 @@
+﻿@page "/pinkdragon"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Pink Dragon";
+
+    private string ImageUrl = "img/pinkdragon.png";
+
+    private string Description = "Introducing the mystical and delightful Pink Dragon! This enchanting concoction features a base of smooth vodka, elevated by a refreshing burst of soda water, with just the right amount of sweetness from a tantalizing blend of apple juice and passionfruit syrup. Served in a chilled glass with a pink hue, this drink is as delightful to the eyes as it is to the taste buds. Sip on this mystical elixir and let the Pink Dragon take you on a journey to a land of pure bliss.";
+
+    private string[] ingredients = new string[] {
+        "2 oz Vodka",
+        "Soda Water (to top up)",
+        "1/2 oz Apple Juice",
+        "1 oz Passionfruit Syrup",
+        "Maraschino Cherry, for garnish"
+    };
+
+    private string[] instructions = new string[] {
+        "Fill a highball glass with ice.",
+        "Add vodka.",
+        "Pour in apple juice.",
+        "Add passionfruit syrup.",
+        "Top up with soda water.",
+        "Stir gently to mix all the ingredients.",
+        "Garnish with a slice of passionfruit or a cherry, if desired."
+    };
+}

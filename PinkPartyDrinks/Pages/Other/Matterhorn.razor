@@ -1,0 +1,78 @@
+﻿@page "/matterhorn"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in Ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <ol>
+                @foreach (string i in Instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Matterhorn";
+
+    private string ImageUrl = "img/matterhorn.png";
+
+    private string Description = "Matterhorn combines the anise and herbal flavors of absinthe with the nutty sweetness of amaretto, tartness of lime juice, and spiciness of ginger beer. The bitters add depth and complexity to the flavor profile. The result is a well-balanced and refreshing cocktail with a slight kick from the absinthe. Enjoy!";
+
+    private string[] Ingredients = {
+        "1 oz Absinthe",
+        "1 oz Amaretto",
+        "1 oz Lime Juice",
+        "3 oz Ginger Beer",
+        "4 Dash Bitters" };
+
+    private string[] Instructions = {
+        "Fill a cocktail shaker with ice.",
+        "Add the absinthe, amaretto, lime juice, and bitters to the shaker.",
+        "Shake well for about 10-15 seconds.",
+        "Strain the mixture into a highball glass filled with ice.",
+        "Top off the glass with ginger beer.",
+        "Give the drink a gentle stir to combine the ingredients.",
+        "Garnish with a lime wedge."
+    };
+}
+

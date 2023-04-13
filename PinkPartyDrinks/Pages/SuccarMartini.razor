@@ -1,0 +1,77 @@
+﻿@page "/succarmartini"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+
+@*Barperson stuff*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <tbody>
+                    @foreach (var row in ingredients)
+                    {
+                        <tr>
+                            <td class="text-center">@row</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <h6>Instructions:</h6>
+            <ol>
+                @foreach (string i in instructions)
+                {
+                    <li>@i</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private string PageTitle = "Succar Martini";
+
+    private string ImageUrl = "img/matterhorn.jpeg";
+
+    private string Description = "Succar Martini is a refreshing and sweet cocktail that will tantalize your taste buds with its zesty lime and crisp white wine notes. The simple syrup adds a delightful sweetness to the drink, perfectly balanced by the tangy lime juice. With a generous pour of smooth vodka, this martini is perfect for those who love a classic cocktail with a twist.";
+
+    private string[] ingredients = new string[] {
+        "3 1/2 oz Vodka",
+        "1/2 oz Lime Juice",
+        "1/2 oz Simple Syrup",
+        "3 oz White Wine"
+    };
+
+    private string[] instructions = new string[] {
+        "Fill a shaker with ice.",
+        "Add simple syrup, lime juice, and vodka to the shaker.",
+        "Shake well until chilled.",
+        "Strain the mixture into a chilled martini glass.",
+        "Top up with white wine.",
+        "Garnish with a lime wheel or a wedge."
+    };
+}
