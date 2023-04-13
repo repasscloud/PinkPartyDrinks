@@ -1,0 +1,32 @@
+﻿@page "/yellowtailc"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+            <img src="@ImageUrl" class="img-fluid mx-auto d-block" alt="@PageTitle" />
+        </div>
+    </div>
+</div>
+
+@*Description*@
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12">
+            <p>@Description</p>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string PageTitle = "Yellow Tail Chardonnay";
+
+    private string ImageUrl = "img/yellowtailc.png";
+
+    private string Description = "This [yellow tail] Chardonnay is everything a great wine should be – vibrant, flavoursome, fresh and easy to drink.";
+}
