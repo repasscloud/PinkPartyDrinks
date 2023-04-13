@@ -21,7 +21,7 @@ jobs:
 
     # publishes Blazor project to the release-folder
     - name: Publish .NET 7.0 WASM Project
-      run: dotnet publish PinkPartyDrinks/PinkPartyDrinks.csproj -c Release -o release --nologo
+      run: dotnet publish PinkPartyDrinks.csproj -c Release -o release --nologo
     
     # changes the base-tag in index.html from '/' to 'PinkPartyDrinks' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to PinkPartyDrinks
