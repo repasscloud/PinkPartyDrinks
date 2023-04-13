@@ -1,0 +1,29 @@
+﻿@page "/ladymeow"
+
+<PageTitle>@PageTitle</PageTitle>
+
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8" style="text-align: center;">
+            <h1 class="text-center">@PageTitle</h1>
+            <p>@Text</p>
+            <p>@Text2</p>
+            <p>@Text3</p>
+            <img class="img-fluid max-width-100" src="@Image" alt="@AltText">
+        </div>
+    </div>
+</div>
+
+@code {
+    private string PageTitle = "Lady Meow";
+
+    private string Text = "Lady Meow stays in the middle office room, and doesn't want to be disturbed.";
+
+    private string Text2 = "⛔ DO NOT ENTER ROOM ⛔";
+
+    private string Text3 = "Disturbing Lady Meow is instant ejection from the party!";
+
+    private string Image = "img/page-specific/ladymeow.jpg";
+
+    private string AltText = "Lady Meow";
+}

@@ -1,0 +1,49 @@
+﻿@page "/tequila"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        @for (int i = 0; i < (tequilaDrinks.Length / 3); i++)
+        {
+            <div class="col-md-4">
+                <a href="@tequilaDrinks[i, 1]">
+                    <div class="card mb-3">
+                        <img src="@tequilaDrinks[i, 2]" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">@tequilaDrinks[i, 0]</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
+</div>
+
+@code {
+    private string PageTitle = "Tequila Drinks 🍸";
+
+    private string[,] tequilaDrinks = new string[,]
+    {
+        { "Disco Pink", "/discopink", "img/discopink.png" },
+        { "Cusco Club", "/cuscoclub", "img/cuscoclub.png" },
+        { "Devil's Margarita", "/devilsmargarita", "img/devilsmargarita.png" },
+        { "Green Light", "/greenlight", "img/greenlight.png" },
+        { "Glitter Dream", "/glitterdream", "img/glitterdream.png" },
+        { "No. 2", "/no2", "img/no2.png" },
+        { "Italian Margarita", "/italianmargarita", "img/italianmargarita.png" },
+    };
+}

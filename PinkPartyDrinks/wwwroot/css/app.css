@@ -9,7 +9,7 @@ h1:focus {
 }
 
 a, .btn-link {
-    color: #0071c1;
+    color: #ffc0cb;
 }
 
 .btn-primary {
@@ -103,3 +103,18 @@ a, .btn-link {
 .text-center {
     text-align: center;
 }
+
+/* CSS styles for controlling image size */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.max-width-100 {
+    max-width: 100%;
+}
+
+/* Emoji span for menu */
+.emoji-span {
+    margin-right: 0.5em; /* Adjust the value to set the desired space */
+  }

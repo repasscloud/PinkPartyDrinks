@@ -1,10 +1,20 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>@PageTitle</PageTitle>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+<!-- HTML markup with additional CSS classes for image sizing -->
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <img class="img-fluid max-width-100" src="/img/invite.png" alt="Party Invitation">
+        </div>
+    </div>
+</div>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
 
+@code {
+    private string PageTitle = "Bondi to Arq";
+
+    private string PageSubtitle = "Danijel's 41st Birthday Party";
+}
