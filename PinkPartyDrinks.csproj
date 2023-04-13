@@ -19,14 +19,4 @@
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="Pages\Gin\" />
-    <None Remove="Pages\Tequila\" />
-    <None Remove="Pages\Other\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\Gin\" />
-    <Folder Include="Pages\Tequila\" />
-    <Folder Include="Pages\Other\" />
-  </ItemGroup>
 </Project>

@@ -1,16 +1,32 @@
 ﻿@page "/"
 
+<style>
+    @@import url('https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap');
+    @@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap');
+</style>
+
 <PageTitle>@PageTitle</PageTitle>
 
-
-<!-- HTML markup with additional CSS classes for image sizing -->
-<div class="container-fluid mb-3">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <img class="img-fluid max-width-100" src="img/invite.png" alt="Party Invitation">
-        </div>
+<div class="container mb-3">
+  <div class="row">
+    <div class="col-md-6 order-1 order-md-0">
+        <!-- content for the first column -->
+        <img class="img max-width-100" src="img/index/martini-glass.png">
+        @* <img class="img-fluid max-width-100" src="img/index/martini-glass.png"> *@
     </div>
+    <div class="col-md-6 order-0 order-md-1">
+        <!-- content for the second column -->
+        <h1 class="send-flowers">Bondi to</h1>
+        <h1 class="send-flowers">Arq</h1>
+        <p class="gold-font">YOU'RE INVITED</p>
+        <p class="party-text">An evening of laughter, music, fun and friends. Starting at Danijel's &amp; Alek's home, moving to Arq at 11pm to continue the party ✨</p>
+        <hr />
+        <p class="party-text-2">101 Old South Head Road<br/>Bondi Junction</p>
+        <hr />
+    </div>
+  </div>
 </div>
+
 
 
 @code {

@@ -1,0 +1,48 @@
+﻿@page "/beerwine"
+
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@PageTitle</PageTitle>
+
+@*Title and image*@
+<div class="container-fluid mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">@PageTitle</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        
+        @for (int i = 0; i < (beerwineDrinks.Length / 3); i++)
+        {
+            <div class="col-md-4">
+                <a href="@beerwineDrinks[i, 1]">
+                    <div class="card mb-3">
+                        <img src="@beerwineDrinks[i, 2]" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">@beerwineDrinks[i, 0]</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
+</div>
+
+@code {
+    private string PageTitle = "Qantas Beer & Wines";
+
+    private string[,] beerwineDrinks = new string[,]
+    {
+        { "Heineken", "/heineken", "img/heineken.png" },
+        { "Mercury Hard Cider", "/mercuryhardcider", "img/mercuryhardcider.png" },
+        { "Hardys Sauvignon Blanc", "/hardyssb", "img/hardyssb.png" },
+        { "Yellow Tail Chardonnay", "/yellowtailc", "img/yellowtailc.png" },
+        { "Jamieson's Run Shiraz", "/jamiesonsrunshiraz", "img/jamiesonsrunshiraz.png" },
+        { "Jamieson's Run Cabernet Sauvignon", "/jamiesonsruncabsav", "img/jamiesonsruncabsav.png" },
+    };
+}

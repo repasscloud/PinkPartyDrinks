@@ -1,0 +1,28 @@
+h1 {
+    font-size: 5em; /* equivalent to 40px */
+}  
+
+.send-flowers {
+    color: #2397de;
+    font-family: 'Send Flowers', cursive;
+    text-align: center;
+}
+
+.gold-font {
+    color: #cba135; /* or #FFDF00 */
+    font-family: 'Source Serif Pro', serif;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.party-text {
+    font-family: 'Source Serif Pro', serif;
+    text-align: center;
+}
+
+.party-text-2 {
+    font-family: 'Source Serif Pro', serif;
+    text-align: center;
+    color: #cba135;
+    font-weight: 600;
+}
